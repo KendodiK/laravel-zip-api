@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->smallInteger('postalCode')->notNull();
             $table->string('name',25)->notNull();
-            $table->unsignedBigInteger('countryId')->notNull();
+            $table->unsignedBigInteger('countyId')->notNull();
         });
     }
 

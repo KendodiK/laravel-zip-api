@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('counties', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->notNull();
+            $table->string('name',25)->unique();
         });
     }
 
