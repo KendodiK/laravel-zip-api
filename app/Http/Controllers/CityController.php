@@ -20,19 +20,19 @@ class CityController extends Controller
     }
 
     public function store(Request $request){
-        $request->validate([ //basic validation more could be done
+        $request->validate([
             'name' => 'required',
             'postal_code' => 'required',
             'county_id' => 'required',
-        ]);
+        ]); //basic validation more could be done
+
         $city = new City();
         $city->name = $request->name;
         $city->postalCode = $request->postal_code;
-        $city->countyId = $request->countyId;
-
+        $city->countyId = $request->county_id;
         $city->save();
 
-        return response()->json($city);
+        return response()->json(['city' => $city],200,['Content-Type' => 'application/json;charset=UTF-8', 'Charset' => 'utf-8'],JSON_UNESCAPED_UNICODE);
     }
 
     public function update(Request $request, $id){
@@ -48,7 +48,7 @@ class CityController extends Controller
         $city->countyId = $request->county_id;
         $city->save();
 
-        return response()->json($city);
+        return response()->json(['city' => $city], 200,['Content-Type' => 'application/json;charset=UTF-8', 'Charset' => 'utf-8'],JSON_UNESCAPED_UNICODE);
     }
 
     public function destroy($id){
